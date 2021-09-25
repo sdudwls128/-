@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <cmath>
 using namespace std;
 using namespace bangtal;
 
@@ -15,7 +14,7 @@ ObjectPtr endButton;
 TimerPtr timer;
 
 float animationTime = 0.01f;
-int mixCount = 10;
+int mixCount = 200;
 int blank;
 
 int game_index(ObjectPtr piece) {
@@ -61,7 +60,7 @@ int random_move() {
 }
 
 void start_game() {
-	mixCount = 10;
+	mixCount = 200;
 	timer->set(animationTime);
 	timer->start();
 
@@ -110,13 +109,13 @@ void init_game() {
 			});
 		game_original[i] = game_board[i];
 	}
-	endButton = Object::create("Images/end.png", scene, 590, 30);
+	endButton = Object::create("Images/end.png", scene, 590, 50);
 	endButton->hide();
 
 	start = Object::create("Images/start.png", scene, 590, 100);
 	start->setOnMouseCallback([&](auto, auto, auto, auto)->bool {
 		endButton->hide();
-		start->hide();
+		start->hide();ㄴ
 		start_game();
 		return true;
 		});
